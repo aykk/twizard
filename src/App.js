@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import { render } from "react-dom";
-import ReactDOM from 'react-dom'
-
-
 
 const mapStyles = {
-  width: '500px',
-  height: '170px',
-  mapTypeId: 'satellite',
-  margin: 150,
-  padding: 100,
+  width: '750px',
+  height: '350px',
+  margin: 310,
+  padding: 30,
 };
 
 var lati = 0;
@@ -50,7 +46,7 @@ export class MapContainer extends Component {
         initialCenter={
           {
             lat: lati,
-            lng: longi
+            lng: longi,
           }
         }
       >
@@ -61,11 +57,6 @@ export class MapContainer extends Component {
   }
 }
 
-
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCT3OIk64RCKckk0m05jl9ZnyFP9OoaPY0'
 })(MapContainer);
-
-///////////////////////jsx
-
-
