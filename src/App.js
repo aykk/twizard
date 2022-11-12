@@ -1,13 +1,44 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { render } from "react-dom";
+import ReactDOM from 'react-dom'
+
+
 
 const mapStyles = {
   width: '500px',
   height: '170px',
   mapTypeId: 'satellite',
   margin: 150,
-  padding: 100
+  padding: 100,
 };
+
+var lati = 0;
+var longi = 0;
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+
+componentDidMount() {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    lati = position.coords.latitude;
+    longi = position.coords.longitude;
+  });
+}
+
+render() {
+  return (
+    <div>
+    </div>
+  );
+}
+}
+
+render(<App />, document.getElementById("root"));
 
 export class MapContainer extends Component {
   render() {
@@ -18,15 +49,23 @@ export class MapContainer extends Component {
         style={mapStyles}
         initialCenter={
           {
-            lat: 37.230358,
-            lng: -80.422379
+            lat: lati,
+            lng: longi
           }
         }
-      />
+      >
+        <Marker
+        />
+      </Map>
     );
   }
 }
 
+
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCT3OIk64RCKckk0m05jl9ZnyFP9OoaPY0'
 })(MapContainer);
+
+///////////////////////jsx
+
+
