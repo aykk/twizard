@@ -8,7 +8,6 @@ import "./App.css";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 
-
 const googleApi = "https://maps.googleapis.com/maps/api/place/search/json?location=";
 const googleApiEnd = "&keyword=place&key=AIzaSyCT3OIk64RCKckk0m05jl9ZnyFP9OoaPY0";
 
@@ -18,15 +17,17 @@ var fullLink = "x";
 
 async function getPeeLink(){
   urgency = returnUrgency();
-  radius = 110 - urgency;
-  alert(urgency);
+  radius = Math.floor(110 - urgency);
   fullLink = googleApi + lati + "," + longi + "&radius=" + radius + googleApiEnd;
+  alert("There is a location to piss within a " + radius + " foot radius!");
   alert(fullLink);
+  const element = document.getElementById("radi");
+  element.innerHTML = "Radius:" + radius + " feet";
 }
 
 const mapStyles = {
   width: '50%x',
-  height: '55%',
+  height: '50%',
   margin: 50,
   padding: 0
 };
@@ -34,12 +35,12 @@ const mapStyles = {
 var lati = 0;
 var longi = 0;
 
+var message = "You are 100% likely to get caught if you piss here! Find a bathroom instead!";
+
 export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [],
-      DataisLoaded: false
     };
   }
 
@@ -59,15 +60,16 @@ export class App extends Component {
         <p2>(How badly do you need to go?)</p2>
         <br/>
         <br/>
-        
-       
         <Col>
             <Button onClick={(e) => getPeeLink()}> Tinkle </Button>
         </Col>
         <br/>
-        <p3> Risk: 0%   </p3>
+        <p3 id = "radi"> Radius: {radius} feet</p3>
         <br/>
-        <p3>Current Location: Holden Hall</p3>
+        <p3>Current Location: {lati}, {longi} (Holden Hall)</p3>
+        <br/>
+        <br/>
+        <p3><b><i>{message}</i></b></p3>
         <Map
             google={this.props.google}
             zoom={20}
@@ -79,8 +81,7 @@ export class App extends Component {
             }
           }
         >
-          <Marker
-          />
+          <Marker/>
         </Map>
       </div>
     );
