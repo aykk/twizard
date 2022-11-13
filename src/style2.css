@@ -1,13 +1,17 @@
+
+
 body{
     text-align: center;
-    background-color: #fada5f;
+    /*background-color: #fada5f;*/
+    background-image: linear-gradient(to right,#F0E68C, #e6ca68);
     font-family: "Lucida Console", "Courier New", monospace;
+    
     
   }
 
   
   h1{
-    font-size: 200%;
+    font-size: 250%;
     text-align: center;
     color: #c69f26;
     text-shadow: 2px 2px black;
@@ -17,19 +21,38 @@ body{
 
   }
 
-/*  button {
-    background-color: #d99536; 
-    border: none;
-    color: white;
-    padding: 15px 32px;
+
+
+  Button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 18px;
+    cursor: pointer;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    font-family: "Lucida Console", "Courier New", monospace;
+    outline: none;
+    color: #fff;
+    background-color: #f3c50b;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px #89801f;
   }
-*/
+  
+  Button:hover {background-color: #ff3e0eda}
+  
+  Button:active {
+    background-color: #58c215;
+    box-shadow: 0 2px rgb(0, 0, 0);
+    transform: translateY(3px);
+  }
 
+
+
+
+  p{
+    font-size: 120%;
+  }
 
   p2{
     font-size: 90%;
@@ -44,25 +67,13 @@ body{
     border-radius: 5px;  
     background: #d3d3d3;
     outline: none;
-    opacity: 0.7;
+    opacity: 0.4;
     -webkit-transition: .2s;
     transition: opacity .2s;
   }
-  
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%; 
-    background: #b69513;
-    cursor: pointer;
+
+  /* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
   }
   
-  .slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #ffffff;
-    cursor: pointer;
-  }
