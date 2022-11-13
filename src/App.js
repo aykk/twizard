@@ -12,17 +12,17 @@ const googleApi = "https://maps.googleapis.com/maps/api/place/search/json?locati
 const googleApiEnd = "&keyword=place&key=AIzaSyCT3OIk64RCKckk0m05jl9ZnyFP9OoaPY0";
 
 var urgency = 0;
-var radius = 110 - urgency;
+var radius = 0;
 var latiNew = 0;
 var longiNew = 0;
-
+var fullLink = "w";
+ 
 async function getPeeLocation(){
   urgency = returnUrgency();
+  radius = 110 - urgency;
   alert(urgency);
-  const fullLink = googleApi + lati + "," + longi + "&radius=" + radius + googleApiEnd;
-  latiNew = fullLink;
-  longiNew = fullLink;
- alert("pepepepep");
+  fullLink = googleApi + lati + "," + longi + "&radius=" + radius + googleApiEnd;
+  alert(fullLink);
 
 }
 
@@ -40,7 +40,9 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    };
+      items: [],
+      DataisLoaded: false
+  };
   }
 
   componentDidMount() {
@@ -62,9 +64,9 @@ export class App extends Component {
             <Button onClick={(e) => getPeeLocation()}> Tinkle </Button>
         </Col>
         <br/>
-        <p3> Risk: +   </p3>
+        <p3> Risk: 0%   </p3>
         <br/>
-        <p3>Location: 180 Kent Street</p3>
+        <p3>Current Location: Holden Hall</p3>
         <Map
             google={this.props.google}
             zoom={20}
