@@ -3,12 +3,9 @@
 body{
     text-align: center;
     /*background-color: #fada5f;*/
-    background-image: linear-gradient(to right,#F0E68C, #e6ca68);
+    background-image: linear-gradient(to right,#ffe874, #ffd332);
     font-family: "Lucida Console", "Courier New", monospace;
-    
-    
   }
-
   
   h1{
     font-size: 250%;
@@ -21,8 +18,6 @@ body{
 
   }
 
-
-
   Button {
     display: inline-block;
     padding: 15px 25px;
@@ -32,7 +27,7 @@ body{
     text-decoration: none;
     font-family: "Lucida Console", "Courier New", monospace;
     outline: none;
-    color: #fff;
+    color: rgb(244, 244, 244);
     background-color: #f3c50b;
     border: none;
     border-radius: 15px;
@@ -51,9 +46,6 @@ body{
     transform: translateY(3px);
   }
 
-
-
-
   p{
     font-size: 120%;
   }
@@ -61,9 +53,6 @@ body{
   p2{
     font-size: 90%;
   }
-
-
-
 
 .slider {
     width: 50%;
